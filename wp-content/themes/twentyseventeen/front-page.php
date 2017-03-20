@@ -12,12 +12,10 @@
  * @version 1.0
  */
 
-get_header(); ?>
+get_header();?>
 
-<div id="primary" class="content-area">
-	<main id="main" class="site-main" role="main">
 
-		<?php // Show the selected frontpage content.
+	<?php // Show the selected frontpage content.
 		if ( have_posts() ) :
 			while ( have_posts() ) : the_post();
 				get_template_part( 'template-parts/page/content', 'front-page' );
@@ -43,12 +41,10 @@ get_header(); ?>
 			// Create a setting and control for each of the sections available in the theme.
 			for ( $i = 1; $i < ( 1 + $num_sections ); $i++ ) {
 				$twentyseventeencounter = $i;
-				twentyseventeen_front_page_section( null, $i );
+				//twentyseventeen_front_page_section( null, $i );
 			}
 
 	endif; // The if ( 0 !== twentyseventeen_panel_count() ) ends here. ?>
 
-	</main><!-- #main -->
-</div><!-- #primary -->
 
 <?php get_footer();

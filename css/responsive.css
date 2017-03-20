@@ -1,0 +1,49 @@
+@media only screen and (max-width:1199px) {
+	.gallery-box img{width: 100%;}
+	.gallery-box{min-height: 370px;}
+}
+
+@media only screen and (min-width:768px) {
+	.carousel-caption.newcaption{
+	right: 32%!important;
+	bottom: 29%;
+}
+}
+
+@media only screen and (max-width: 767px) {
+	.menu1{background: rgba(0, 0, 0, 0.7); top: 0!important; padding: 10px 0px;}
+	.left-logo{max-width: 80px;}
+	#show_button a{width: 70px; background-size: 100%; height: 35px;}
+	.banner-section{padding-top: 68px;}
+	.service-section{padding-top: 40px;}
+	.service-header h2{font-size: 36px;}
+	.carousel-caption{font-size: 28px; line-height: 30px;}
+	.carousel-caption.desh2, .carousel-caption{bottom: 20px; left: 2%;}
+	.main-image-text h2{font-size: 22px;}
+	.main-image-text p{font-size: 14px;}
+	#some_box{position: absolute;}
+	.rightheight{height: auto!important; position: static;}
+	.servicebg-right{position: static; padding-bottom: 40px;}
+	.rightheight.pull-right{float: none!important; padding: 0;}
+	.bg{padding-left: 15px;}
+	.tour-heading h2,.popular_innerpage .tour-heading h2{padding-left: 15px; font-size: 30px; margin-top: 0;}
+	.customtab-list li a{font-size: 18px;}
+	.tour-tab, .tour-details{max-width: 100%;}
+	.birdfly,.airoplane{display: none;}
+}
+
+@media only screen and (max-width: 480px) {
+	.service-section{padding-top: 24px;}
+	.service-header h2{font-size: 28px;}
+	.main-image-text h2, .bottom h1{font-size: 18px;}
+	.main-image-text p{font-size: 12px; margin-top: 30px;}
+	.main-image-text h2::after{bottom: -15px;}
+	.footer-text ul li, .footer-text ul li a, .footer-text p, .adviser-text h4,
+	.tab-content p, .tour-details p{font-size: 14px;}
+	.service-section .main-box{margin-top: 20px;}
+	.main-image-text{padding: 0px 40px;}
+	.adviser-text h3{font-size: 18px;}
+	.bottom p, .adviser-text p{font-size: 12px;}
+	.tour-heading h2{font-size: 36px; padding-left: 0;}
+	.tab-pane .carousel-indicators li, .tab-pane .carousel-indicators li.active{width: 60px; height: 30px;}
+}
