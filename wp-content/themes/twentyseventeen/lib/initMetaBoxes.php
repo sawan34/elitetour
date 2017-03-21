@@ -12,8 +12,8 @@
     }
 
     function __construct (){
-
-     $this->metaBoxAddingAndSaving("cecp_whats_new_button_text","whatsnew","Button Text", false, "normal");  
+    
+     $this->metaBoxAddingAndSaving("elit_know_services_link","knowmoreservices","Link", false, "normal");  
 
      $this->metaBoxAddingAndSaving("cecp_whats_new_external_link","whatsnew","External Link"
                                    );
@@ -26,11 +26,11 @@
                                    );   
      $this->metaBoxAddingAndSaving("whatsnew_secondary_title","whatsnew","Secondary Title", false, "normal");
 
-     $this->metaBoxAddingAndSaving("banner_title","page","Banner Title", false, "normal");
+    // $this->metaBoxAddingAndSaving("banner_title","page","Banner Title", false, "normal");
 
-     $this->metaBoxAddingAndSaving("banner_secondary_title","page","Banner Secondary Title", false, "normal");
+    // $this->metaBoxAddingAndSaving("banner_secondary_title","page","Banner Secondary Title", false, "normal");
 
-     $this->metaBoxAddingAndSaving("banner_button_text","page","Banner Button Text", false, "normal");
+    // $this->metaBoxAddingAndSaving("banner_button_text","page","Banner Button Text", false, "normal");
 
      
 
@@ -71,7 +71,7 @@
      $this->metaBoxAddingAndSaving("services_subtext","page","Services Sub Heading", false, "normal","page-templates/templates-homepage.php");
      $this->metaBoxAddingAndSaving("whatsnew_heading","page","What's New Heading", false, "normal","page-templates/templates-homepage.php");
 
-     $this->metaBoxImageAddingAndSaving("post_author_image","post","Author Image", false, "normal", false);
+     $this->metaBoxImageAddingAndSaving("moreserviceimage","page","More Service", false, "normal", false);
 
      $this->metaBoxAddingAndSaving("phots_heading","page","Photos Heading", false, "normal","page-templates/templates-photos-video.php");
      $this->metaBoxAddingAndSaving("photos_description","page","Photos Description", false, "normal","page-templates/templates-photos-video.php");
@@ -186,4 +186,6 @@
   }
 
   add_action( "admin_init" , "CECP_metabox::instance");
+wp_enqueue_script('upload_media_widget', CECP_URL . 'admin/js/upload-media.js', array('jquery'));
+  
 ?>

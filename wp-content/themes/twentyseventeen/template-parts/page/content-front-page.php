@@ -10,6 +10,11 @@
 
 ?>
 <?php the_content( ); ?>
+
+<?php
+wp_reset_postdata();
+
+?>
 <?php
 		/* translators: %s: Name of current post */
 		//the_content( );

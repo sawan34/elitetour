@@ -566,4 +566,40 @@ require get_parent_theme_file_path( '/inc/customizer.php' );
 require get_parent_theme_file_path( '/inc/icon-functions.php' );
 
 require_once locate_template('/lib/init.php');
+function mycecp_page_lists( $post ) {
+    // we store data as an array, we need to unserialize it
+    $checkfield = maybe_unserialize( get_post_meta($post->ID, "checkfield", true) );
+
+    // Nonce to verify intention later
+    wp_nonce_field( 'save_quote_meta', 'custom_nonce' ); 
+
+    $pages = get_pages(); 
+    foreach ( $pages as $page ) { ?>
+        <input id="page_<?php echo $page->ID; ?>" type="checkbox" name="checkfield[]" value="<?php echo $page->ID; ?>" <?php if ( in_array($page->ID, (array) $checkfield) ) { ?> checked <?php } ?>/> <label for="page_<?php echo $page->ID; ?>"><?php echo $page->post_title; ?></label> <br>
+<?php 
+    } 
+}
+//save the meta box action
+add_action( 'save_post', 'myplugin_meta_save', 10, 2 );
+
+//save the meta box
+function myplugin_meta_save($post_id, $post)
+{   
+    if ( isset($_POST['checkfield']) ) { // if we get new data
+
+        update_post_meta($post_id, "checkfield", $_POST['checkfield'] );
+
+    }
+}
+
+
+function mycecp_metaboxes(){
+	global $post;
+	//$pageTemplate = get_post_meta($post->ID, '_wp_page_template', true);
+	//if($pageTemplate =="page-templates/template-mycecp.php"){
+		add_meta_box( 'mycecp_select_pages', 'Select Pages To Link', 'mycecp_page_lists', array('page'), 'side', 'default' );
+	//}
+	
+}
+add_action( 'add_meta_boxes', 'mycecp_metaboxes' );
 
