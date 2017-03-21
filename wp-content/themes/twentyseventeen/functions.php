@@ -595,9 +595,10 @@ function myplugin_meta_save($post_id, $post)
 
 function mycecp_metaboxes(){
 	global $post;
+	//var_dump($post);die;
 	//$pageTemplate = get_post_meta($post->ID, '_wp_page_template', true);
-	//if($pageTemplate =="page-templates/template-mycecp.php"){
-		add_meta_box( 'mycecp_select_pages', 'Select Pages To Link', 'mycecp_page_lists', array('page'), 'side', 'default' );
+	//if($post->post_type == 'knowmoreservices'){
+		add_meta_box( 'mycecp_select_pages', 'Select Pages To Link', 'mycecp_page_lists', array('knowmoreservices'), 'side', 'default' );
 	//}
 	
 }

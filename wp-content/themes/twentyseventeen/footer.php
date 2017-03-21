@@ -105,6 +105,7 @@
 	<script src="js/wow.min.js"></script>
 	<script src="js/custom.js"></script>
 	<script>
+	(function($){
 new WOW().init();
 $(function(){
 	$(window).scroll(function() {    
@@ -129,5 +130,8 @@ $(function(){
     });
 
 });
+})(jQuery);
 </script>
+<?php  wp_footer(); ?>
+<?php echo get_option('killer_custom_option_google_analytics',true); ?>
 </html>
