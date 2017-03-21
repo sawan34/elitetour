@@ -37,7 +37,7 @@ wp_reset_postdata();
                 $image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_id() ), 'full','true' );
                 $pagesSelected = maybe_unserialize(get_post_meta(get_the_id(), "checkfield", true));
                ?>
-				<div class="col-sm-4 image01" style="background: url(<?php echo $image[0]; ?>) no-repeat center;">
+				<div class="col-sm-4 image01" style="background: url(<?php echo $image[0]; ?>) no-repeat center;background-size: cover;">
 				<?php
                    if(count($pagesSelected)>0){
                      foreach ($pagesSelected as $key => $value) {
