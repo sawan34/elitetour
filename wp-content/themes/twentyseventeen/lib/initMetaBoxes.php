@@ -15,8 +15,18 @@
     
      $this->metaBoxAddingAndSaving("elit_know_services_link","knowmoreservices","Link", false, "normal");  
 
-     $this->metaBoxAddingAndSaving("cecp_whats_new_external_link","whatsnew","External Link"
+     $this->metaBoxAddingAndSaving("associates_name","associates","Name"
                                    );
+     $this->metaBoxAddingAndSaving("associates_lang","associates","Languages Spoken"
+                                   );
+     $this->metaBoxAddingAndSaving("associates_exp","associates","Experience"
+                                   );
+     $this->metaBoxAddingAndSaving("associates_area","associates","Area of Operations"
+                                   );
+     $this->metaBoxAddingAndSaving("associates_license","associates","Tour Guide License"
+                                   );
+
+
      $this->metaBoxAddingAndSaving("cecp_companies_ceo_name","companies","CEO Name"
                                    );
      $this->metaBoxAddingAndSaving("company_link","companies","Company URL"

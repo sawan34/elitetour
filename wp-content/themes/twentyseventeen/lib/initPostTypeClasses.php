@@ -19,6 +19,9 @@
         $registerPost = new CECP_postTypeClass;
         $this->registerPostType("Know More Services",$registerPost);
 
+        $registerPost = new CECP_postTypeClass;
+        $this->registerPostType("Associates",$registerPost);
+
       // $this->registerPostType("Companies",$registerPost);
        // $this->registerPostType("Press Releases",$registerPost);
        // $this->registerPostType("News",$registerPost);

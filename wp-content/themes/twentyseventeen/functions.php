@@ -599,8 +599,15 @@ function mycecp_metaboxes(){
 	//$pageTemplate = get_post_meta($post->ID, '_wp_page_template', true);
 	//if($post->post_type == 'knowmoreservices'){
 		add_meta_box( 'mycecp_select_pages', 'Select Pages To Link', 'mycecp_page_lists', array('knowmoreservices'), 'side', 'default' );
+		add_meta_box( 'mycecp_select_pages', 'Select Pages To Link', 'mycecp_page_lists', array('page'), 'side', 'default' );
 	//}
 	
 }
 add_action( 'add_meta_boxes', 'mycecp_metaboxes' );
 
+function get_post_content_by_id($id){
+	//$id=47; 
+	$post = get_post($id); 
+	$content = apply_filters('the_content', $post->post_content); 
+	echo $content;
+}
