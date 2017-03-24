@@ -36,7 +36,7 @@ $url = get_bloginfo( 'url' );
 			<div class="col-sm-3 rightheight pull-right">
 				<div class="servicebg-right" >
 					<div class="bg">
-						<a href="services.html"><img src="<?php echo $url ; ?>/images/cross.png" ></a>
+						<a href="<?php echo $url; ?>"><img src="<?php echo $url ; ?>/images/cross.png" ></a>
 						<h2>SERVICES</h2>
 						<?php $tab =1 ;?>
 						<ul id="tabs" class="customtab-list nav nav-tabs nav-stacked" data-tabs="tabs">
@@ -189,7 +189,7 @@ $url = get_bloginfo( 'url' );
 <div class="enqbutton">
 		<img src="<?php echo $url ; ?>/images/enquarybutton.png">
 	</div>
-<?php echo do_shortcode( '[contact-form-7 id="68" title="Book Us Now"]' ); ?>
+<?php echo do_shortcode( '[contact-form-7 id="58" title="Book Us Now"]' ); ?>
 <?php wp_footer();?>
 <script src="<?php echo $url ; ?>/js/custom.js"></script>
 	<script src="<?php echo $url ; ?>/js/bootstrap.min.js"></script>
