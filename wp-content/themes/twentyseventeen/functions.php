@@ -611,3 +611,59 @@ function get_post_content_by_id($id){
 	$content = apply_filters('the_content', $post->post_content); 
 	echo $content;
 }
+
+//adding editor
+add_action( 'add_meta_boxes', 'home_cecp_add_custom_box' );
+function home_cecp_add_custom_box() {
+	global $post;
+	$pageTemplate = get_post_meta($post->ID, '_wp_page_template', true);
+
+  	if($pageTemplate == 'template-off-beat-inner.php')
+ 	{
+  		add_meta_box( 'off_beat_inner_details', 'Details', 'off_beat_inner_details_editor', 'page' );
+  		add_meta_box( 'off_beat_inner_itinerary', 'Itinerary', 'off_beat_inner_itinerary_editor', 'page' );
+  		add_meta_box( 'off_beat_inner_location', 'Location', 'off_beat_inner_location_editor', 'page' );
+  		add_meta_box( 'off_beat_inner_photos', 'Photos', 'off_beat_inner_photos_editor', 'page' );
+
+  	}
+}
+
+/* Prints the box content */
+  function off_beat_inner_details_editor( $post ) {
+  	$field_value1 = get_post_meta( $post->ID, '_off_beat_inner_details_editor', false );
+    @wp_editor( $field_value1[0], '_off_beat_inner_details_editor' );
+  }
+
+  function off_beat_inner_itinerary_editor( $post ) {
+  	$field_value1 = get_post_meta( $post->ID, '_off_beat_inner_itinerary_editor', false );
+    @wp_editor( $field_value1[0], '_off_beat_inner_itinerary_editor' );
+  }
+
+  function off_beat_inner_location_editor( $post ) {
+  	$field_value1 = get_post_meta( $post->ID, '_off_beat_inner_location_editor', false );
+    @wp_editor( $field_value1[0], '_off_beat_inner_location_editor' );
+  }
+
+  function off_beat_inner_photos_editor( $post ) {
+  	$field_value1 = get_post_meta( $post->ID, '_off_beat_inner_photos_editor', false );
+    @wp_editor( $field_value1[0], '_off_beat_inner_photos_editor' );
+  }
+
+ add_action( 'save_post', 'home_cecp_save_postdata' );
+
+  /* When the post is saved, saves our custom data */
+  function home_cecp_save_postdata( $post_id ) {
+   global $post;
+	$pageTemplate = get_post_meta($post_id , '_wp_page_template', true);
+
+  	if($pageTemplate == 'template-off-beat-inner.php') {
+     update_post_meta( $post_id, '_off_beat_inner_details_editor', $_POST['_off_beat_inner_details_editor'] );
+     update_post_meta( $post_id, '_off_beat_inner_itinerary_editor', $_POST['_off_beat_inner_itinerary_editor'] );
+     update_post_meta( $post_id, '_off_beat_inner_location_editor', $_POST['_off_beat_inner_location_editor'] );
+     update_post_meta( $post_id, '_off_beat_inner_photos_editor', $_POST['_off_beat_inner_photos_editor'] );
+
+    }
+  }
+
+//}
+

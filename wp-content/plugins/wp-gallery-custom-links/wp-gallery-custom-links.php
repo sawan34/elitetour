@@ -79,6 +79,19 @@ class WPGalleryCustomLinks {
 	public static function apply_filter_attachment_fields_to_edit( $form_fields, $post ) {
 		$help_css = 'z-index:999;display:none;position:absolute;margin-top:-100px;background-color:#ffffe0;text-align:left;border:1px solid #dfdfdf;padding:10px;width:75%;font-weight:normal;border-radius:3px;';
 
+		$pages = get_pages(); 
+		$select = '<select name="attachments['.$post->ID.'][gallery_link_url]">';
+        	$selectedPage = get_post_meta( $post->ID, '_gallery_link_url', true );
+
+        foreach ( $pages as $page ) {  
+        	$selected="";
+        	if($selectedPage == $page->ID){
+ 				$selected = 'selected="selected"';
+        	}
+        	$select .= '<option value="'.$page->ID.'"  '.$selected.'>'.$page->post_title.'</option>';
+        }
+        $select .= '</select>';	
+        //get_post_meta( $post->ID, '_gallery_link_url', true )
 		// Gallery Link URL field
 		$form_fields['gallery_link_url'] = array(
 			'label' => __( 'Gallery Link URL', 'wp-gallery-custom-links' ) .
@@ -87,9 +100,35 @@ class WPGalleryCustomLinks {
 				__( 'Will replace "Image File" or "Attachment Page" link for this image in galleries. Use [none] to remove the link from this image in galleries.', 'wp-gallery-custom-links' ) .
 				' <a href="#" onclick="jQuery(\'#wpgcl_gallery_link_url_help\').hide(); return false;">[X]</a>' .
 				'</div>',
-			'input' => 'text',
-			'value' => get_post_meta( $post->ID, '_gallery_link_url', true )
+			'input' => 'html',
+			'html' => $select
 		);
+       
+        $select = '<select name="attachments['.$post->ID.'][gallery_link_sub_url]">';
+        	$selectedPage = get_post_meta( $post->ID, '_gallery_link_sub_url', true );
+
+        foreach ( $pages as $page ) {  
+        	$selected="";
+        	if($selectedPage == $page->ID){
+ 				$selected = 'selected="selected"';
+        	}
+        	$select .= '<option value="'.$page->ID.'"  '.$selected.'>'.$page->post_title.'</option>';
+        }
+        $select .= '</select>';	
+
+		$form_fields['gallery_link_sub_url'] = array(
+			'label' => __( 'Gallery Link SUB URL', 'wp-gallery-custom-links' ) .
+				' <a href="#" onclick="jQuery(\'.wpgcl_gallery_link_help\').hide();jQuery(\'#wpgcl_gallery_link_url_help\').show(); return false;" onblur="jQuery(\'#wpgcl_gallery_link_url_help\').hide();">[?]</a>' .
+				'<div id="wpgcl_gallery_link_url_help" style="'.$help_css.'" class="wpgcl_gallery_link_help">' .
+				__( 'Will replace "Image File" or "Attachment Page" link for this image in galleries. Use [none] to remove the link from this image in galleries.', 'wp-gallery-custom-links' ) .
+				' <a href="#" onclick="jQuery(\'#wpgcl_gallery_link_url_help\').hide(); return false;">[X]</a>' .
+				'</div>',
+			'input' => 'html',
+			'html' => $select
+		);
+
+
+
 		// Gallery Link Target field
 		$target_value = get_post_meta( $post->ID, '_gallery_link_target', true );
 		$form_fields['gallery_link_target'] = array(
@@ -142,6 +181,12 @@ class WPGalleryCustomLinks {
 		if( isset( $attachment['gallery_link_url'] ) ) {
 			update_post_meta( $post['ID'], '_gallery_link_url', $attachment['gallery_link_url'] );
 		}
+
+		if( isset( $attachment['gallery_link_url'] ) ) {
+			update_post_meta( $post['ID'], '_gallery_link_sub_url', $attachment['gallery_link_sub_url'] );
+		}
+
+		
 		if( isset( $attachment['gallery_link_target'] ) ) {
 			update_post_meta( $post['ID'], '_gallery_link_target', $attachment['gallery_link_target'] );
 		}

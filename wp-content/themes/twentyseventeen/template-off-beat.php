@@ -74,7 +74,7 @@ $url = get_bloginfo( 'url' );
 				            	?>
 				            <div class="col-sm-6 tour scroll-here">
 						<div class="tour-inner">
-							<a href="<?php echo get_post_meta( $attachment->ID, '_gallery_link_url', true ); ?>">
+							<a href="<?php echo get_permalink(get_post_meta( $attachment->ID, '_gallery_link_url', true ) ); ?>#tab0<?php echo get_post_meta( $attachment->ID, '_gallery_link_sub_url', true ); ?>C">
 								<img src="<?php echo wp_get_attachment_url( $id); ?>" class="img-responsive ser">
 								<div class="bottom">
 									<h1><?php echo $attachment->post_excerpt; ?></h1>
