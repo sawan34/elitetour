@@ -48,7 +48,7 @@ $url = get_bloginfo( 'url' );
 				                     foreach ($pagesSelected as $key => $value) {
 				                     	$tab++;
                                   ?>
-							       <li><a href="#tab0<?php echo $tab; ?>C" data-toggle="tab"><?php echo get_the_title($value) ; ?></a></li>
+							       <li><a href="#tab0<?php echo $tab; ?>C" data-toggle="tab"><?php echo strtoupper(get_the_title($value))  ; ?></a></li>
 								<?php } }?>
 						</ul>
 						<?php $tab =1 ;?>
@@ -148,7 +148,7 @@ $url = get_bloginfo( 'url' );
 			<?php }  ?>				
 					
 		<?php } else {echo _e("No Associates present");}
-			
+
 			wp_reset_query();
 		?></div>
 						<!-- </div>
