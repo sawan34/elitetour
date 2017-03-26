@@ -46,7 +46,10 @@ $url = get_bloginfo( 'url' );
 				                   if(count($pagesSelected)>0){
 				                     foreach ($pagesSelected as $key => $value) {
 				                     	$tab++;
+				                     	$style =="";
+				                     	if($tab==1){
 				                     	$style = 'style="margin-top: 50px;"';
+				                     }
                                   ?>
 							<li <?php echo $style; ?>><a href="<?php echo get_permalink($value); ?>"><?php echo get_the_title($value ); ?></a></li>
 							
