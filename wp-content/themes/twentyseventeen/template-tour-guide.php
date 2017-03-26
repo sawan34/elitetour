@@ -65,9 +65,9 @@ $url = get_bloginfo( 'url' );
 							<div class="tour-banner">
 							<?php
 							if(has_post_thumbnail()){
-                $image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_id() ), 'full','true' );
-               }
-               ?>
+                			$image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_id() ), 'full','true' );
+               					}
+               				?>
 								<img src="<?php echo $image[0] ; ?>">
 							</div>
 							<div class="tour-details">
@@ -146,11 +146,11 @@ $url = get_bloginfo( 'url' );
 							</div>
 
 			<?php }  ?>				
-					</div>
+					
 		<?php } else {echo _e("No Associates present");}
-
+			
 			wp_reset_query();
-		?>
+		?></div>
 						<!-- </div>
 					</div> -->
 				</div> <!-- tab01c ends here -->
