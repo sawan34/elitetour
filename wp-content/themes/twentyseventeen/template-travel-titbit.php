@@ -53,7 +53,7 @@ $ref = $_SERVER['HTTP_REFERER'] ;
 				     $image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_id() ), 'full','true' ); ?>
 				    <div class="col-sm-6 tour scroll-here">
 						<div class="tour-inner">
-							<a href="<?php the_permalink(); ?>#tab01C">
+							<a href="<?php the_permalink(); ?>#tab0<?php echo get_the_id(); ?>C">
 								<img src="<?php echo $image[0]; ?>" class="img-responsive ser">
 								<div class="bottom">
 									<h1><?php the_title( ); ?></h1>

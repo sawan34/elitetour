@@ -632,6 +632,18 @@ function home_cecp_add_custom_box() {
 
  	}
 
+ 	if($pageTemplate == 'template-prominent.php')
+ 	{
+  		add_meta_box( 'prominent_guest_galley', 'Prominent Guest Galley', 'prominent_guest_galley_editor', 'page' );
+
+ 	}
+
+ 	if($pageTemplate == 'template-review.php')
+ 	{
+  		add_meta_box( 'prominent_review_galley', 'Review Galley', 'review_galley_editor', 'page' );
+
+ 	}
+
    //print_r($post);die;
  	//if($post->post_type=='traveltitbits'){
  		add_meta_box( 'off_beat_inner_details', 'Place to Visit', 'off_beat_inner_details_editor', 'traveltitbits' );
@@ -647,6 +659,15 @@ function home_cecp_add_custom_box() {
 
 /* Prints the box content */
 
+function review_galley_editor($post){
+	$field_value1 = get_post_meta( $post->ID, '_review_galley_editor', false );
+    @wp_editor( $field_value1[0], '_review_galley_editor' );
+}
+
+function prominent_guest_galley_editor($post){
+	$field_value1 = get_post_meta( $post->ID, '_prominent_guest_galley', false );
+    @wp_editor( $field_value1[0], '_prominent_guest_galley' );
+}
 function off_beat_htr_editor($post){
 	$field_value1 = get_post_meta( $post->ID, '_off_beat_htr_editor', false );
     @wp_editor( $field_value1[0], '_off_beat_htr_editor' );
@@ -707,6 +728,16 @@ function off_beat_facts_editor($post){
 
      	update_post_meta( $post_id, '_off_beat_htr_editor', $_POST['_off_beat_htr_editor'] );
      	update_post_meta( $post_id, '_off_beat_facts_editor', $_POST['_off_beat_facts_editor'] );
+
+ 	}
+
+ 	if(isset($_REQUEST['_prominent_guest_galley'])){
+     	update_post_meta( $post_id, '_prominent_guest_galley', $_POST['_prominent_guest_galley'] );
+
+ 	}
+
+ 	if(isset($_REQUEST['_review_galley_editor'])){
+     	update_post_meta( $post_id, '_review_galley_editor', $_POST['_review_galley_editor'] );
 
  	}
   }

@@ -21,9 +21,8 @@ $ref = $_SERVER['HTTP_REFERER'] ;
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/responsive.css">
 
-	<script src="js/jquery.min.js"></script>
-	<script src="js/custom.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<?php wp_head(); ?>
+	
 </head>
 <body>
 	<!-- <div id="google_translate_element"></div> -->
@@ -36,125 +35,33 @@ $ref = $_SERVER['HTTP_REFERER'] ;
 	
 	<div class="container-fluid">
 		<div class="row clearfix">
-			<div class="col-sm-3 rightheight pull-right">
-				<div class="servicebg-right" >
-					<div class="bg">
-						<a href="index.html"><img src="images/cross.png" ></a>
-						<ul class="customtab-list" style="margin-top: 20px;">
-							<li class="active"><a href="contact.html">Contact</a></li>
-							<li style="margin-top: 50px;"><a href="aboutme.html">About</a></li>
-							<li><a href="services.html">Services</a></li>
-							<li><a href="travel.html">Travel Tidbits</a></li>
-							<li><a href="prominent.html">Prominent Guests</a></li>
-							<li><a href="reviews_inner.html">Review</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
+			<?php require_once locate_template('footer-sidebar.php'); ?>
+			
 			<div class="col-sm-9 tab-content pull-left">
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="tour-heading">
-							<h2>Contact Us</h2>
+							<h2><?php echo get_the_title(); ?></h2>
 						</div>
 						<div class="tour-banner">
-							<img src="images/contactus/contact-us-banner.jpg">
+							<?php
+							if(has_post_thumbnail()){
+                			$image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_id() ), 'full','true' );
+               					}
+               				?>
+								<img src="<?php echo $image[0] ; ?>">
 						</div>
-						<div class="tour-details contact-us">
-							<div class="contact-heading">
-								<h2>Contact Elite Tour Solutions</h2>
-							</div>
-							<div class="contact-list">
-								<ul>
-									<li>
-										<a href="#">
-											<div class="social-box">
-												<span><i class="fa fa-envelope-o"></i></span>
-											</div>
-											<h5>Email</h5>
-											<p>hello@interimsellingsolutions</p>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<div class="social-box">
-												<span><i class="fa fa-mobile"></i></span>
-											</div>
-											<h5>Phone</h5>
-											<p>+44 20 3034 0600</p>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<div class="social-box">
-												<span><i class="fa fa-twitter"></i></span>
-											</div>
-											<h5>Twitter</h5>
-											<p>Follow Us</p>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<div class="social-box">
-												<span><i class="fa fa-skype"></i></span>
-											</div>
-											<h5>Skype</h5>
-											<p>Call Us</p>
-										</a>
-									</li>
-								</ul>
-							</div>
-						</div>
+
+						<?php
+			while ( have_posts() ) : the_post();
+
+				the_content();
+
+			endwhile; // End of the loop.
+			?>
+						
 					</div>
 				</div>
-				<footer class="footer scroll-here" id="footer">
-					<div class="row footborder">
-						<div class="col-sm-2">
-							<div class="footer-logo">
-								<img src="images/index/logo.png">
-							</div>
-						</div>
-						<div class="col-sm-8">
-							<div class="footer-text">
-								<h3>Contact</h3>
-								<p>It is a long established fact that a reader </p>
-								<ul class="contact-details">
-									<li><a href="#">booking@elitetouragra.com</a></li>
-									<li><span><img src="images/dot.png"></span>(+05) 320 3057970</li>
-									<li><span><img src="images/dot.png"></span><a href="#">Skype  Elite Tour Agra</a></li>
-								</ul>
-
-								<ul class="social-icon">
-									<li><div><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></div></li>
-									<li><div><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></div></li>
-									<li><div><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></div></li>
-									<li><div><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></div></li>
-								</ul>
-								<h6>&#9400; all right reserved</h6>
-							</div>
-						</div>
-						<div class="col-sm-2">
-							<div class="ft-paypal">
-								<a target="_blank" href="https://www.paypal.com/in/home"><img src="images/paypal-payment.png"></a>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-3">
-							<div class="international-logo">
-								<a href="#"><img src="images/International.jpg"></a>
-							</div>
-						</div>
-						<div class="col-sm-2 center">
-							<a class="tripadvisor" style="border-bottom: none !important;" href="https://www.tripadvisor.in/Attraction_Review-g297683-d5779939-Reviews-Elite_Solutions-Agra_Uttar_Pradesh.html" target="_blank">
-							<img class="alignnone size-full wp-image-1393" src="http://elitesolutionsagra.com/wp-content/uploads/2016/09/Untitled-2.jpg" alt="untitled-2" width="150" height="100">
-							</a>
-						</div>
-						<div class="col-sm-7" align="center">
-							<img src="images/tourism-logo-all.png" width="100%">
-						</div>
-					</div>			
-				</footer>
 			</div>
 		</div>		
 	</div>
@@ -162,304 +69,10 @@ $ref = $_SERVER['HTTP_REFERER'] ;
 
 
 <div class="enqbutton">
-	<img src="images/enquarybutton.png">
-</div>
-<div class="tourbutton">
-	<img src="images/tourbutton.png">
-</div>
-<section class="form-section">
-	<div class="form-outer">
-		<div class="form-inner">
-			<div class="form-close text-right">
-				<a href="#">Close <img src="images/formclose.png"></a>
-			</div>
-			<form action="" method="" style="margin-bottom: 0;">
-				<div class="form-list">
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="form-group">
-							    <p>Name:</p>
-							    <input type="text" class="form-control" id="name" required>
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="form-group">
-							    <p>Phone no:</p>
-							    <input type="text" class="form-control" id="number" required>
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="form-group">
-							    <p>Email:</p>
-							    <input type="email" class="form-control" id="email" required>
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="form-group">
-							    <p>Country:</p>
-							    <input type="text" class="form-control" id="query" required>
-							</div>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="form-group">
-							    <p>Arrival Date:</p>
-							    <input type="text" class="form-control" id="name" required>
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="form-group">
-							    <p>Departure Date:</p>
-							    <input type="text" class="form-control" id="number" required>
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="form-group">
-							    <p>Number of Adults:</p>
-							    <input type="email" class="form-control" id="email" required>
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="form-group">
-							    <p>Number of Kids:</p>
-							    <input type="text" class="form-control" id="query" required>
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="form-group">
-							    <p>Travel Type:</p>
-							    <select name="" class="form-control">
-							    	<option value="">Select Travel Type</option>
-							    	<option value="">Family Vacation</option>
-							    	<option value="">Honeymoon</option>
-							    	<option value="">Business</option>
-							    </select>
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="form-group">
-							    <p>Hotel Type:</p>
-							    <select name="" class="form-control">
-							    <option value="">Select Hotel</option>
-							    	<option value="">Budget Hotel</option>
-							    	<option value="">Three Star Hotel</option>
-							    	<option value="">Four Star Hotel</option>
-							    	<option value="">Five Star Hotel</option>
-							    	<option value="">Heritage Hotel</option>
-							    	</select>
-							</div>
-						</div>
-						<div class="col-sm-12">
-							<div class="form-group">
-							    <p>Message:</p>
-							    <textarea name="message" class="form-control messaget"></textarea>
-							</div>
-						</div>
-						<div class="col-sm-12">
-							<div class="form-group text-center">
-								<button type="submit" class="btn btn-default">Submit</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</form>
-		</div>
+		<img src="images/enquarybutton.png">
 	</div>
-</section>
+<?php echo do_shortcode( '[contact-form-7 id="58" title="Book Us Now"]' ); ?>
 
-<!-- ----------2nd-form------------ -->
-<section class="form-section2">
-	<div class="form-outer">
-		<div class="form-inner">
-			<div class="form-close text-right">
-				<a href="#">Close <img src="images/formclose.png"></a>
-			</div>
-			<form action="" method="" style="margin-bottom: 0;">
-				<div class="form-list">
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="form-group">
-							    <p>Name:</p>
-							    <input type="text" class="form-control" id="name" required>
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="form-group">
-							    <p>Phone no:</p>
-							    <input type="text" class="form-control" id="number" required>
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="form-group">
-							    <p>Email:</p>
-							    <input type="email" class="form-control" id="email" required>
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="form-group">
-							    <p>Country:</p>
-							    <input type="text" class="form-control" id="query" required>
-							</div>
-						</div>
-					</div>
 
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="form-group">
-							    <p>Date:</p>
-							    <input type="text" class="form-control" id="name" required>
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="form-group">
-							    <p>No of Pax:</p>
-							    <input type="text" class="form-control" id="number" required>
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="form-group">
-							    <p>Language in which guide required:</p>
-							    <!-- <input type="email" class="form-control" id="email" required> -->
-							    <select data-placeholder="Choose a Language..." class="form-control">
-									<option value="">Choose a Language...</option>
-									<option value="AF">Afrikanns</option>
-									<option value="SQ">Albanian</option>
-									<option value="AR">Arabic</option>
-									<option value="HY">Armenian</option>
-									<option value="EU">Basque</option>
-									<option value="BN">Bengali</option>
-									<option value="BG">Bulgarian</option>
-									  <option value="CA">Catalan</option>
-									  <option value="KM">Cambodian</option>
-									  <option value="ZH">Chinese (Mandarin)</option>
-									  <option value="HR">Croation</option>
-									  <option value="CS">Czech</option>
-									  <option value="DA">Danish</option>
-									  <option value="NL">Dutch</option>
-									  <option value="EN">English</option>
-									  <option value="ET">Estonian</option>
-									  <option value="FJ">Fiji</option>
-									  <option value="FI">Finnish</option>
-									  <option value="FR">French</option>
-									  <option value="KA">Georgian</option>
-									  <option value="DE">German</option>
-									  <option value="EL">Greek</option>
-									  <option value="GU">Gujarati</option>
-									  <option value="HE">Hebrew</option>
-									  <option value="HI">Hindi</option>
-									  <option value="HU">Hungarian</option>
-									  <option value="IS">Icelandic</option>
-									  <option value="ID">Indonesian</option>
-									  <option value="GA">Irish</option>
-									  <option value="IT">Italian</option>
-									  <option value="JA">Japanese</option>
-									  <option value="JW">Javanese</option>
-									  <option value="KO">Korean</option>
-									  <option value="LA">Latin</option>
-									  <option value="LV">Latvian</option>
-									  <option value="LT">Lithuanian</option>
-									  <option value="MK">Macedonian</option>
-									  <option value="MS">Malay</option>
-									  <option value="ML">Malayalam</option>
-									  <option value="MT">Maltese</option>
-									  <option value="MI">Maori</option>
-									  <option value="MR">Marathi</option>
-									  <option value="MN">Mongolian</option>
-									  <option value="NE">Nepali</option>
-									  <option value="NO">Norwegian</option>
-									  <option value="FA">Persian</option>
-									  <option value="PL">Polish</option>
-									  <option value="PT">Portuguese</option>
-									  <option value="PA">Punjabi</option>
-									  <option value="QU">Quechua</option>
-									  <option value="RO">Romanian</option>
-									  <option value="RU">Russian</option>
-									  <option value="SM">Samoan</option>
-									  <option value="SR">Serbian</option>
-									  <option value="SK">Slovak</option>
-									  <option value="SL">Slovenian</option>
-									  <option value="ES">Spanish</option>
-									  <option value="SW">Swahili</option>
-									  <option value="SV">Swedish </option>
-									  <option value="TA">Tamil</option>
-									  <option value="TT">Tatar</option>
-									  <option value="TE">Telugu</option>
-									  <option value="TH">Thai</option>
-									  <option value="BO">Tibetan</option>
-									  <option value="TO">Tonga</option>
-									  <option value="TR">Turkish</option>
-									  <option value="UK">Ukranian</option>
-									  <option value="UR">Urdu</option>
-									  <option value="UZ">Uzbek</option>
-									  <option value="VI">Vietnamese</option>
-									  <option value="CY">Welsh</option>
-									  <option value="XH">Xhosa</option>
-								</select>
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="form-group">
-							    <p>City in which guide required:</p>
-							    <select class="form-control states" name="state" id="sel12 stateId">
-								   <option value="">Select State</option>
-								  <option value="1">Andaman and Nicobar Islands</option>
-								  <option value="2">Andhra Pradesh</option>
-								  <option value="3">Arunachal Pradesh</option>
-								  <option value="4">Assam</option>
-								  <option value="5">Bihar</option>
-								  <option value="6">Chandigarh</option>
-								  <option value="7">Chhattisgarh</option>
-								  <option value="8">Dadra and Nagar Haveli</option
-								  ><option value="9">Daman and Diu</option>
-								  <option value="10">Delhi</option>
-								  <option value="11">Goa</option>
-								  <option value="12">Gujarat</option>
-								  <option value="13">Haryana</option>
-								  <option value="14">Himachal Pradesh</option>
-								  <option value="15">Jammu and Kashmir</option>
-								  <option value="16">Jharkhand</option>
-								  <option value="17">Karnataka</option>
-								  <option value="18">Kerala</option>
-								  <option value="19">Lakshadweep</option>
-								  <option value="20">Madhya Pradesh</option>
-								  <option value="21">Maharashtra</option>
-								  <option value="22">Manipur</option>
-								  <option value="23">Meghalaya</option>
-								  <option value="24">Mizoram</option>
-								  <option value="25">Nagaland</option>
-								  <option value="26">Odisha</option>
-								  <option value="27">Pondicherry</option>
-								  <option value="28">Punjab</option>
-								  <option value="29">Rajasthan</option>
-								  <option value="30">Sikkim</option>
-								  <option value="31">Tamil Nadu</option>
-								  <option value="32">Telangana</option>
-								  <option value="33">Tripura</option>
-								  <option value="34">Uttar Pradesh</option>
-								  <option value="35">Uttarakhand</option>
-								  <option value="36">West Bengal</option>
-								</select>
-							</div>
-						</div>
-						<div class="col-sm-12">
-							<div class="form-group">
-							    <p>Message:</p>
-							    <textarea name="message" class="form-control messaget"></textarea>
-							</div>
-						</div>
-						<div class="col-sm-12">
-							<div class="form-group text-center">
-								<button type="submit" class="btn btn-default">Submit</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
-</section>
-	
 </body>
 </html>

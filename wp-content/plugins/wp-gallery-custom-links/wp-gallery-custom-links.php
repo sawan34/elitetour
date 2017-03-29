@@ -127,6 +127,30 @@ class WPGalleryCustomLinks {
 			'html' => $select
 		);
 
+        $select = '<select name="attachments['.$post->ID.'][gallery_text_color]">';
+        	$selectedColor = get_post_meta( $post->ID, '_gallery_text_color', true );
+        	$colors = array('','red','blue','yellow');
+        foreach ( $colors as $color ) {  
+        	$selected="";
+        	if($selectedColor == $color){
+ 				$selected = 'selected="selected"';
+        	}
+        	$select .= '<option value="'.$color.'"  '.$selected.'>'.$color.'</option>';
+        }
+        $select .= '</select>';	
+
+
+		$form_fields['gallery_text_color'] = array(
+			'label' => __( 'Gallery Link SUB URL', 'wp-gallery-custom-links' ) .
+				' <a href="#" onclick="jQuery(\'.wpgcl_gallery_link_help\').hide();jQuery(\'#wpgcl_gallery_link_url_help\').show(); return false;" onblur="jQuery(\'#wpgcl_gallery_link_url_help\').hide();">[?]</a>' .
+				'<div id="wpgcl_gallery_link_url_help" style="'.$help_css.'" class="wpgcl_gallery_link_help">' .
+				__( 'Will replace "Image File" or "Attachment Page" link for this image in galleries. Use [none] to remove the link from this image in galleries.', 'wp-gallery-custom-links' ) .
+				' <a href="#" onclick="jQuery(\'#wpgcl_gallery_link_url_help\').hide(); return false;">[X]</a>' .
+				'</div>',
+			'input' => 'html',
+			'html' => $select
+		);
+
 
 
 		// Gallery Link Target field
@@ -186,6 +210,9 @@ class WPGalleryCustomLinks {
 			update_post_meta( $post['ID'], '_gallery_link_sub_url', $attachment['gallery_link_sub_url'] );
 		}
 
+		if( isset( $attachment['gallery_text_color'] ) ) {
+			update_post_meta( $post['ID'], '_gallery_text_color', $attachment['gallery_text_color'] );
+		}
 		
 		if( isset( $attachment['gallery_link_target'] ) ) {
 			update_post_meta( $post['ID'], '_gallery_link_target', $attachment['gallery_link_target'] );
