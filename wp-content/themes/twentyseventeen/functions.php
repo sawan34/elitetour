@@ -626,9 +626,38 @@ function home_cecp_add_custom_box() {
   		add_meta_box( 'off_beat_inner_photos', 'Photos', 'off_beat_inner_photos_editor', 'page' );
 
   	}
+  	if($pageTemplate == 'template-about.php')
+ 	{
+  		add_meta_box( 'off_beat_inner_photos', 'Service name', 'off_beat_inner_photos_editor', 'page' );
+
+ 	}
+
+   //print_r($post);die;
+ 	//if($post->post_type=='traveltitbits'){
+ 		add_meta_box( 'off_beat_inner_details', 'Place to Visit', 'off_beat_inner_details_editor', 'traveltitbits' );
+  		add_meta_box( 'off_beat_inner_itinerary', 'Best Time to visit', 'off_beat_inner_itinerary_editor', 'traveltitbits' );
+  		add_meta_box( 'off_beat_inner_lmoc', 'Map of City', 'off_beat_inner_location_editor', 'traveltitbits' );
+
+  		add_meta_box( 'off_beat_inner_htr', 'How to reach', 'off_beat_htr_editor', 'traveltitbits' );
+  		add_meta_box( 'off_beat_inner_location', 'Facts', 'off_beat_facts_editor', 'traveltitbits' );
+
+  		add_meta_box( 'off_beat_inner_photos', 'Picture gallery', 'off_beat_inner_photos_editor', 'traveltitbits' );
+ 	//}
 }
 
 /* Prints the box content */
+
+function off_beat_htr_editor($post){
+	$field_value1 = get_post_meta( $post->ID, '_off_beat_htr_editor', false );
+    @wp_editor( $field_value1[0], '_off_beat_htr_editor' );
+}
+
+function off_beat_facts_editor($post){
+	$field_value1 = get_post_meta( $post->ID, '_off_beat_facts_editor', false );
+    @wp_editor( $field_value1[0], '_off_beat_facts_editor' );
+}
+
+
   function off_beat_inner_details_editor( $post ) {
   	$field_value1 = get_post_meta( $post->ID, '_off_beat_inner_details_editor', false );
     @wp_editor( $field_value1[0], '_off_beat_inner_details_editor' );
@@ -663,6 +692,23 @@ function home_cecp_add_custom_box() {
      update_post_meta( $post_id, '_off_beat_inner_photos_editor', $_POST['_off_beat_inner_photos_editor'] );
 
     }
+    if($pageTemplate == 'template-about.php')
+ 	{
+     update_post_meta( $post_id, '_off_beat_inner_photos_editor', $_POST['_off_beat_inner_photos_editor'] );
+  		
+
+ 	}
+
+ 	if($post->post_type=='traveltitbits'){
+ 		update_post_meta( $post_id, '_off_beat_inner_details_editor', $_POST['_off_beat_inner_details_editor'] );
+    	update_post_meta( $post_id, '_off_beat_inner_itinerary_editor', $_POST['_off_beat_inner_itinerary_editor'] );
+     	update_post_meta( $post_id, '_off_beat_inner_location_editor', $_POST['_off_beat_inner_location_editor'] );
+     	update_post_meta( $post_id, '_off_beat_inner_photos_editor', $_POST['_off_beat_inner_photos_editor'] );
+
+     	update_post_meta( $post_id, '_off_beat_htr_editor', $_POST['_off_beat_htr_editor'] );
+     	update_post_meta( $post_id, '_off_beat_facts_editor', $_POST['_off_beat_facts_editor'] );
+
+ 	}
   }
 
 //}

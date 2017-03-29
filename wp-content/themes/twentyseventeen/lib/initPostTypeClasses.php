@@ -22,6 +22,9 @@
         $registerPost = new CECP_postTypeClass;
         $this->registerPostType("Associates",$registerPost);
 
+        $registerPost = new CECP_postTypeClass;
+        $this->registerPostType("Travel Titbits",$registerPost);
+
       // $this->registerPostType("Companies",$registerPost);
        // $this->registerPostType("Press Releases",$registerPost);
        // $this->registerPostType("News",$registerPost);
