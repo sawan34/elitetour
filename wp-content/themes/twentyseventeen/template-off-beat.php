@@ -98,6 +98,8 @@ $url = get_bloginfo( 'url' );
 
 					
 				</div>
+			<?php require_once locate_template('footer-middle.php'); ?>
+				
 			</div>
 		</div>		
 	</div>

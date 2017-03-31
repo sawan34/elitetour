@@ -181,7 +181,8 @@ $url = get_bloginfo( 'url' );
 					</div>
 				</div>
 								<?php } }?>
-
+			<?php require_once locate_template('footer-middle.php'); ?>
+								
 			</div>
 		</div>		
 	</div>

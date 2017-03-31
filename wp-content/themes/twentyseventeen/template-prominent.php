@@ -85,6 +85,8 @@ $ref = $_SERVER['HTTP_REFERER'] ;
 						<?php } } ?>
                    </div>
 				</div>
+			<?php require_once locate_template('footer-middle.php'); ?>
+				
 			</div>
 		</div>
 	</div>
