@@ -40,7 +40,7 @@ $ref = $_SERVER['HTTP_REFERER'] ;
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="tour-heading">
-							<h2>About Us</h2>
+							<h2><?php echo get_the_title(  ); ?></h2>
 						</div>
 						<?php
 							if(has_post_thumbnail()){
