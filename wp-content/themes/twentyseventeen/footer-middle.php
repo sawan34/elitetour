@@ -1,6 +1,6 @@
 <footer class="footer scroll-here" id="footer">
-		<div class="container">
-			<div class="row" style="border-bottom: 1px solid #b4cb39; padding-bottom: 20px;">
+		
+			<div class="row footborder">
 				<div class="col-sm-2">
 					<div class="footer-logo">
 					   <?php
@@ -10,9 +10,14 @@
 				'itemprop' => 'logo',
 			) ) ; ?>
 					</div>
+
+
+
 					<div class="ft-logotxt text-left">
 						<p><?php echo get_option('killer_custom_option_footerfield1',true); ?></p>
 					</div>
+
+
 				</div>
 				<div class="col-sm-8">
 					<div class="footer-text">
@@ -46,5 +51,5 @@
 			</div>
 			<?php echo get_option('killer_custom_option_footer_content',true); ?>
 			
-		</div>			
+				
 	</footer>      
