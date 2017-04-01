@@ -39,7 +39,7 @@ $url = get_bloginfo( 'url' );
 			<div class="col-sm-3 rightheight pull-right">
 				<div class="servicebg-right" >
 					<div class="bg">
-						<a href="<?php echo $_SERVER['HTTP_REFERER'] ; ?>"><img src="images/cross.png" ></a>
+						<a href="<?php echo $url ; ?>"><img src="images/cross.png" ></a>
 						<h2>Offbeat Tours</h2>
 						<ul id="tabs" class="customtab-list nav nav-tabs nav-stacked" data-tabs="tabs">
 						    <?php
@@ -185,11 +185,11 @@ $url = get_bloginfo( 'url' );
 					</div>
 				</div> <!--- content ends here -->
 			<?php } ?>	
+			<?php require_once locate_template('footer-middle.php'); ?>
 				
 
 
 			</div>
-			<?php require_once locate_template('footer-middle.php'); ?>
 			
 		</div>		
 	</div>
