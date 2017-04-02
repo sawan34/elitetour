@@ -36,6 +36,8 @@
                                    );   
      $this->metaBoxAddingAndSaving("whatsnew_secondary_title","whatsnew","Secondary Title", false, "normal");
 
+     $this->metaBoxAddingAndSaving("rewars_content","page","Content", false, "normal","template-awards.php");
+
     // $this->metaBoxAddingAndSaving("banner_title","page","Banner Title", false, "normal");
 
     // $this->metaBoxAddingAndSaving("banner_secondary_title","page","Banner Secondary Title", false, "normal");
@@ -44,7 +46,7 @@
 
      
 
-     $this->metaBoxAddingAndSaving("banner_button_link","page","Banner Button Link", false, "normal");
+     //$this->metaBoxAddingAndSaving("banner_button_link","page","Banner Button Link", false, "normal");
 
      $this->metaBoxAddingAndSaving("career_button_link","careers","Button Text", false, "normal");
 
