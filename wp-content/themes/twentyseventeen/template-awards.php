@@ -69,7 +69,7 @@ $ref = $_SERVER['HTTP_REFERER'] ;
 
 
 						<div class="tour-details">
-							<p><?php the_content(); ?></p>
+							<p><?php echo get_post_meta(get_the_id(),'rewars_content', true ); ?></p>
 						</div>
 					</div>
 				</div>
