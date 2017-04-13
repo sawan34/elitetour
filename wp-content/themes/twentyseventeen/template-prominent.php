@@ -107,7 +107,9 @@ $args = array(
 
 
 <!-- ----------2nd-form------------ -->
-
+<?php wp_footer(); ?>
+	<script src="js/custom.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 
 </body>
 </html>
