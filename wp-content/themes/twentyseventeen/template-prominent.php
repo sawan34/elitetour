@@ -10,6 +10,12 @@
 $url = get_bloginfo( 'url' );
 $ref = $_SERVER['HTTP_REFERER'] ;
 
+$args = array(
+	    'green'=>'first',
+		'red'=>'second',
+		'yellow' =>'third'
+       );
+
 ?>
 <html>
 <head>
@@ -45,7 +51,7 @@ $ref = $_SERVER['HTTP_REFERER'] ;
 								<h2><?php echo get_the_title( ); ?></h2>
 							</div>
 							<div class="tour-banner">
-							<?php
+								<?php
 							if(has_post_thumbnail()){
                 			$image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_id() ), 'full','true' );
                					}
@@ -70,9 +76,10 @@ $ref = $_SERVER['HTTP_REFERER'] ;
 									?>
 						<div class="col-sm-4">
 							<div class="prominent-box">
-								<div class="prominent-image first">
+								<div class="prominent-image <?php echo $args[get_post_meta( $pageValue->ID, '_gallery_text_color', true )]; ?>">
 									<div class="prominent-inner">
 										<img src="<?php echo wp_get_attachment_url( $value); ?>">
+										
 									</div>
 								</div>
 								<div class="prominent-text">
@@ -81,24 +88,26 @@ $ref = $_SERVER['HTTP_REFERER'] ;
 								</div>
 							</div>
 						</div>	
-
 						<?php } } ?>
-                   </div>
+
+
+					</div>
 				</div>
 			<?php require_once locate_template('footer-middle.php'); ?>
-				
+
 			</div>
 		</div>
 	</div>
 
 
 <div class="enqbutton">
-		<img src="images/enquarybutton.png">
-	</div>
+	<img src="images/enquarybutton.png">
+</div>
 <?php echo do_shortcode( '[contact-form-7 id="58" title="Book Us Now"]' ); ?>
 
-	<?php wp_footer(); ?>
-	<script src="js/custom.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+
+<!-- ----------2nd-form------------ -->
+
+
 </body>
 </html>
