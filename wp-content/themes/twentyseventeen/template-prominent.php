@@ -11,7 +11,7 @@ $url = get_bloginfo( 'url' );
 $ref = $_SERVER['HTTP_REFERER'] ;
 
 $args = array(
-	    'green'=>'first',
+	    'blue'=>'first',
 		'red'=>'second',
 		'yellow' =>'third'
        );
