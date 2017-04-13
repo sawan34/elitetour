@@ -76,14 +76,14 @@ $args = array(
 									?>
 						<div class="col-sm-4">
 							<div class="prominent-box">
-								<div class="prominent-image <?php echo $args[get_post_meta( $pageValue->ID, '_gallery_text_color', true )]; ?>">
+								<div class="prominent-image <?php echo $args[get_post_meta( $value, '_gallery_text_color', true )]; ?>">
 									<div class="prominent-inner">
 										<img src="<?php echo wp_get_attachment_url( $value); ?>">
 										
 									</div>
 								</div>
 								<div class="prominent-text">
-									<h4 class="<?php echo get_post_meta( $pageValue->ID, '_gallery_text_color', true ); ?>">
+									<h4 class="<?php echo get_post_meta( $value, '_gallery_text_color', true ); ?>">
 									<?php echo $attachment->post_excerpt; ?></h4>
 								</div>
 							</div>
