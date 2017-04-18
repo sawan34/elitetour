@@ -56,7 +56,7 @@ $url = get_bloginfo( 'url' );
 				</div>
 			</div>
 			<div class="col-sm-9 tab-content pull-left" id="my-tab-content">
-				<div class="custom-tab tab-pane leftheight fade in active" id="tab01C">
+				<div class="custom-tab tab-pane leftheight fade in active" id="tab0<?php echo get_the_id(); ?>C">
 					<div class="row">
 						<div class="col-xs-12">
 							<div class="tour-heading">
