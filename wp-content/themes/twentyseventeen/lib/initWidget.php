@@ -17,12 +17,6 @@ class SliderWidget extends CECF_Widget_builder{
    <section class="index-banner">
     <div id="wowslider-container1" >
       <div class="ws_images">
-        <!-- <ol class="carousel-indicators">
-            <li data-target="#carousel" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel" data-slide-to="1"></li>
-            <li data-target="#carousel" data-slide-to="2"></li>
-        </ol> -->
-        <!-- Carousel items -->
         <?php
         $args = array(
         'post_type'  => 'slider',
@@ -43,8 +37,13 @@ class SliderWidget extends CECF_Widget_builder{
                 $image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_id() ), 'full','true' );
                 
                ?>
-                 <li><img src="<?php echo $image[0]; ?>" alt="collage" title="" id="wows1_<?php echo $active; ?>"/><?php the_title(); ?></li>
-          <?php } $active++;} ?>  
+                 <li><img src="<?php echo $image[0]; ?>" alt="collage" title="" id="wows1_<?php echo $active; ?>"/>
+                           <?php the_title(); ?>
+                  </li>
+          <?php } 
+                   $active++;
+                 } 
+           ?>  
         
             </ul>
             <?php } else {echo _e("No slider present");} ?>        
