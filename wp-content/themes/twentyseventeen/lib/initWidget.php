@@ -15,7 +15,8 @@ class SliderWidget extends CECF_Widget_builder{
    public function widget($args,$instance){ ?>
 
    <section class="index-banner">
-    <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
+    <div id="wowslider-container1" >
+      <div class="ws_images">
         <!-- <ol class="carousel-indicators">
             <li data-target="#carousel" data-slide-to="0" class="active"></li>
             <li data-target="#carousel" data-slide-to="1"></li>
@@ -32,9 +33,9 @@ class SliderWidget extends CECF_Widget_builder{
       $c = 0;
       $posts = $the_query->found_posts;
       if($posts > 0){ ?>
-        <div class="carousel-inner">
+        <ul>        
         <?php 
-          $active = ' active';
+          $active = 0;
           while ( $the_query->have_posts() ) {  
             $the_query->the_post(); 
               
@@ -42,22 +43,12 @@ class SliderWidget extends CECF_Widget_builder{
                 $image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_id() ), 'full','true' );
                 
                ?>
-          <div class="item <?php _e($active); ?>">
-              <img src="<?php echo $image[0]; ?>">
-              <div class="banner-text">
-                <h1><?php the_title(); ?></h1>
-              </div>
-          </div>
-          <?php } $active ="";} ?>  
+                 <li><img src="<?php echo $image[0]; ?>" alt="collage" title="" id="wows1_<?php echo $active; ?>"/><?php the_title(); ?></li>
+          <?php } $active++;} ?>  
+        
+            </ul>
+            <?php } else {echo _e("No slider present");} ?>        
         </div>
-        <!-- Carousel nav -->
-        <a class="carousel-control left" href="#carousel" data-slide="prev">
-          <img src="images/index/left-arrow.png">
-        </a>
-        <a class="carousel-control right" href="#carousel" data-slide="next">
-          <img src="images/index/right-arrow.png">
-        </a>
-        <?php } else {echo _e("No slider present");} ?>
     </div>
   </section>
 
