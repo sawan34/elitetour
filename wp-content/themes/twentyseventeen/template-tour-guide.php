@@ -48,7 +48,7 @@ $url = get_bloginfo( 'url' );
 				                     foreach ($pagesSelected as $key => $value) {
 				                     	$tab++;
                                   ?>
-							       <li><a href="#tab0<?php echo get_the_id(); ?>C" data-toggle="tab"><?php echo strtoupper(get_the_title($value))  ; ?></a></li>
+							       <li><a href="#tab0<?php echo $value; ?>C" data-toggle="tab"><?php echo strtoupper(get_the_title($value))  ; ?></a></li>
 								<?php } }?>
 						</ul>
 						<?php $tab =1 ;?>
