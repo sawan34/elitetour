@@ -100,10 +100,15 @@ $args = array(
 	</div>
 
 
-<div class="enqbutton">
+div class="enqbutton">
 	<img src="images/enquarybutton.png">
 </div>
-<?php echo do_shortcode( '[contact-form-7 id="58" title="Book Us Now"]' ); ?>
+<div class="tourbutton">
+	<img src="images/tourbutton.png">
+</div>
+<?php echo do_shortcode( '[contact-form-7 id="68" title="Book Us Now"]' ); ?>
+
+<?php echo do_shortcode( '[contact-form-7 id="205" title="Book Us Now"]' ); ?>
 
 
 <!-- ----------2nd-form------------ -->
