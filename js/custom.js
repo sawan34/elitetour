@@ -82,8 +82,11 @@
     $(".enqbutton").click(function() {
       $(".form-section").fadeIn();
     });
+    $(".tourbutton").click(function() {
+      $(".form-section2").fadeIn();
+    });
     $(".form-close a").click(function() {
-      $(".form-section").fadeOut();
+      $(".form-section, .form-section2").fadeOut();
     });
 
 
