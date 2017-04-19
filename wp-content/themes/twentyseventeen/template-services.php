@@ -147,7 +147,7 @@ $ref = $_SERVER['HTTP_REFERER'] ;
 		</div>		
 	</div>
 
-div class="enqbutton">
+<div class="enqbutton">
 	<img src="images/enquarybutton.png">
 </div>
 <div class="tourbutton">
