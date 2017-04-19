@@ -1,7 +1,13 @@
 <div class="enqbutton">
 	<img src="images/enquarybutton.png">
 </div>
+<div class="tourbutton">
+	<img src="images/tourbutton.png">
+</div>
 <?php echo do_shortcode( '[contact-form-7 id="68" title="Book Us Now"]' ); ?>
+
+<?php echo do_shortcode( '[contact-form-7 id="205" title="Book Us Now"]' ); ?>
+
 
 </body>
 <?php  wp_footer(); ?>
